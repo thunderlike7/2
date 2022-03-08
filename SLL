@@ -1,0 +1,74 @@
+#include <iostream>
+using namespace std;
+
+struct list
+  {
+    int data;
+    struct list *link;
+  };
+typedef struct list NODE;
+
+class linklist
+  {
+    public:
+        NODE *head=NULL;
+        void insertatfront(int);
+        void deleteatfront();
+        void display();
+  };
+
+void linklist::insertatfront(int element)
+  {
+    NODE* ptr=new NODE;
+    ptr->data=element;
+    ptr->link=NULL;
+    ptr->link=head;
+    head=ptr;
+  }
+
+void linklist::deleteatfront()
+  {
+     NODE* ptr=head;
+
+     if(head==NULL)
+      {
+        cout<<"EMPTY"<<endl;
+      }
+
+     else{
+           cout<<"DELETED ELEMENT IS: "<<ptr->data<<endl;
+           head=head->link;
+           delete ptr;
+          }
+   }
+   
+void linklist::display()
+   {
+      NODE * ptr= head;
+      if(head==NULL)
+        {
+          cout<<"LIST IS EMPTY"<<endl;
+        }
+else{
+    while(ptr!=NULL)
+       {
+        cout<<ptr->data<<endl;
+        ptr=ptr->link;
+       }
+    }
+
+}
+
+int main()
+{
+   linklist obj;
+   obj.insertatfront(10);
+   obj.insertatfront(20);
+   obj.insertatfront(30);
+   obj.insertatfront(40);
+   obj.display();
+   obj.deleteatfront();
+   obj.display();
+
+    return 0;
+}
