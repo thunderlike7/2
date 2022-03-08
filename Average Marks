@@ -1,0 +1,72 @@
+#include <iostream>
+using namespace std;
+
+class STUDENT
+{
+ public: 
+ string USN;
+ string Name;
+ float marks1, marks2, marks3; //marks for the three subjects 
+ float average_marks; //Average marks for the best two
+
+
+public:
+   void Read_data()
+     {
+       cout << "Enter the name : ";
+       cin>>Name;
+       cout<<"Enter the USN : " ;
+       cin>>USN;
+       cout<<"Enter marks1 : " ;
+       cin>>marks1;
+       cout<<"Enter marks2 : " ;
+       cin>>marks2;
+       cout<<"Enter marks3 : " ;
+       cin>>marks3;
+       cout<<endl;
+     }
+
+   void Calculate_Average_Marks()
+     {
+       
+       if( (marks1 < marks2) && (marks1 < marks3) ) 
+           average_marks = (marks2+ marks3)/2;
+
+       else if (marks2 < marks3)
+          average_marks = (marks1 + marks3)/2;
+
+       else average_marks = (marks1 + marks2)/2;
+     }
+
+   void Display_data()
+     {
+       cout<<"\nUSN:"<<USN<<endl;
+       cout<<"Name:" << Name <<endl;
+       cout<<"Average Marks: ";
+       cout<<average_marks<<endl;
+       cout<<"--------------";
+     }
+};
+
+int main()
+{
+
+STUDENT student[10];
+int n,i;
+
+cout<<"Enter the number of students : ";
+cin>>n;
+
+for(i=0;i<n;i++)
+  {
+    student[i].Read_data();
+  }
+
+for(i=0;i<n;i++)
+  {
+    student[i].Calculate_Average_Marks();
+    student[i].Display_data();
+  }
+
+return 0;
+}
