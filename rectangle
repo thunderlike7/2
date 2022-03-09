@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+class rectangle{
+public:
+    float l, b;
+    rectangle(float L,float B){
+        l=L;
+        b=B;
+    }
+    void area(){
+        cout<<"are of rectangle is: "<<l*b<<endl;
+    }
+    ~rectangle(){
+    cout<<"DESTRUCTOR INVOKED"<<endl;
+    }
+};
+void global(){
+    float L,B;
+    cout<<"ENTER THE VALUE OF LENGTH AND BREATH: "<<endl;
+    cin>>L>>B;
+    rectangle r(L,B);
+    r.area();
+
+}
+int main()
+{
+    global();
+    return 0;
+}
